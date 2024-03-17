@@ -5,7 +5,7 @@ export type Class<Methods, Implementation, InitArguments...> = {
 	_should_init: boolean,
 
 	new: (InitArguments...) -> Implementation & Methods,
-} & Methods
+} & Methods  & Implementation
 export type ExtendedClass<Superior, Methods, Implementation, InitArguments...> = Class<Methods & Superior, Implementation & {super: Superior}, InitArguments...>
 
 type LuauClassType = {extend: <T, I>(self: any, from: I, to: T) -> T} & <T>(class: T) -> T
